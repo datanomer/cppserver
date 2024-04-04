@@ -1,2 +1,3 @@
 # cppserver
-Simple HTTP server thing made in C++
+Client-server thing made in C++
+Maybe webserver
