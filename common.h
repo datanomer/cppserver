@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <cstring>
 
-#define BUFSIZE 512
+#define BUFSIZE 1024
 #define PORT 8080
-#define BACKLOG 5
+#define BACKLOG 10
 
