@@ -5,6 +5,10 @@ int main()
 {
     int clientsocket = socket(AF_INET, SOCK_STREAM, 0);
     const void *buf[BUFSIZE];
+    char username[8];
+    std::cout << "Type your username: ";
+    std::cin >> username;
+    
     if (clientsocket == -1) {
         std::cout << "Socket creation failed. \n";
         close(clientsocket);
@@ -23,15 +27,18 @@ int main()
    if (server_socket == 0) {  
        while(1) {
             char msg[BUFSIZE] = {0};
-            std::cin >> msg;
+            std::cout << "Chatting as " << username<< " : ";
+            std::cin >>  msg;
+            std::cout << "Size of message: " << sizeof(msg) << "bytes\n";
             int server_socket = connect(clientsocket, (struct sockaddr*)&client_address, sizeof(client_address)); 
             send(clientsocket, msg, strlen(msg), 0);
-            std::cout << "Message sent successfully\n";  
+            std::cout << "Message sent successfully\n";
+
        }
         close(clientsocket);
    }
-   else if(server_socket == -1){    
-       std::cout << "Message failed to send. \n";
+   else if(server_socket || clientsocket == -1){    
+        std::cout << "Message failed to send. (Server not found) \n";
         close(clientsocket);
         return 1;
    }

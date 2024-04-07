@@ -12,4 +12,5 @@
 #define BUFSIZE 1024
 #define PORT 8080
 #define BACKLOG 10
-
+//char username[8];
+//#define USERNAME username
